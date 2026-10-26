@@ -1,31 +1,40 @@
-﻿# Cryptopkg Gate (ticker)
-> Autonomous Production-Grade Protocol
+# Cryptopkg Gate — local artifact integrity prototype
 
-[![CI/CD Pipeline](https://github.com/elon00/cryptopkg-gate/actions/workflows/ci-cd-pipeline.yml/badge.svg)](https://github.com/elon00/cryptopkg-gate/actions)
-[![Score](https://img.shields.io/badge/Reality%20Gates-100%2F100%20GENUINE%20GREEN-2ea44f?style=flat-square)](#reality-check-verification)
-[![NIST PQC](https://img.shields.io/badge/Security-NIST%20FIPS%20203%20%26%20204-blue?style=flat-square)](#security)
-[![Verified](https://img.shields.io/badge/Status-100%25%20Verified-gold?style=flat-square)](#pillars)
+This repository is the **tests** component of QMOOSA-1000 Batch 177
+(QMOOSA-0885). It currently provides a limited **local SHA-256 package
+artifact checker**, not a package registry, package signing system, post-quantum
+cryptography implementation, deployment gate, or production certification.
 
----
+## Run locally
 
-## About Cryptopkg Gate
-**Cryptopkg Gate (\ticker)** is an autonomous, decentralized, post-quantum intelligence protocol engineered for production-grade operational efficiency and cryptographic trust.
+Python 3.11+ is required. Provide an existing directory and a JSON manifest:
 
----
+\`\`\`json
+{"schema_version":1,"artifacts":[{"path":"release.bin","sha256":"<64 lowercase hex characters>"}]}
+\`\`\`
 
-## Running the Protocol Locally
+\`\`\`bash
+python package_integrity_gate.py --root ./artifacts --manifest ./manifest.json
+python -m compileall -q package_integrity_gate.py tests
+python -m unittest discover -s tests -p 'test_*.py' -v
+cargo test --offline
+\`\`\`
 
-### 1. Execute Reality Check Harness (Python)
-``bash
-python tests/reality_check_harness.py
-``
+The checker rejects malformed paths, missing files, duplicate paths, symlinks,
+oversized artifacts and hash mismatches. Tests use real temporary filesystem
+objects and real Python subprocesses, including adversarial negative cases.
+No network, paid resource, blockchain deployment or secret is required.
 
-### 2. Run the High-Performance Rust State Engine
-``bash
-cargo run
-``
+## Limits and release blockers
 
----
+SHA-256 **integrity is not authenticity**: an attacker who controls both the
+artifact and manifest can replace both. The local path checks are not hardened
+against adversarial concurrent filesystem modification (TOCTOU), and do not
+provide signature provenance, transparency logs, reproducible builds or registry
+access controls. Independent security review and a complete registry
+implementation are required before any deployment-ready decision.
 
-## Reality Check Verification
-Cryptopkg Gate enforces strict pre-deployment verification: all invariants, cryptographic proofs, and micro-escrow contracts must achieve a **100/100 Genuine Green** rating before mainnet settlement.
+Do not interpret a green CI run, local regression tests, README or architecture
+scorecard as a FIPS validation, audited cryptographic implementation,
+security approval or production-readiness certificate. No such approval is
+claimed here.
