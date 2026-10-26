@@ -9,16 +9,16 @@ cryptography implementation, deployment gate, or production certification.
 
 Python 3.11+ is required. Provide an existing directory and a JSON manifest:
 
-\`\`\`json
+```json
 {"schema_version":1,"artifacts":[{"path":"release.bin","sha256":"<64 lowercase hex characters>"}]}
-\`\`\`
+```
 
-\`\`\`bash
+```bash
 python package_integrity_gate.py --root ./artifacts --manifest ./manifest.json
 python -m compileall -q package_integrity_gate.py tests
 python -m unittest discover -s tests -p 'test_*.py' -v
 cargo test --offline
-\`\`\`
+```
 
 The checker rejects malformed paths, missing files, duplicate paths, symlinks,
 oversized artifacts and hash mismatches. Tests use real temporary filesystem
