@@ -1,6 +1,5 @@
-"""
-QMOOSA Reality Check: Smoke Test, Regression & Sanitizer Harness
-"""
+"""Corrupted placeholder retired. Executed regressions: test_package_integrity_gate.py.
 
-def test_pqc_math_invariants():
-    assert 0x55AA55AA55AA55AA€ô€À(€€€ÁÉ¥¹Ğ ‰mAMMtAE%¹Ù…É¥…¹ĞY•É¥™¥•¸ˆ¤()‘•˜Ñ•ÍÑ}½¹İ…å}ÑÉ…¹Í¥Ñ¥½¸ ¤è(€€€ÍÑ…Ñ”€ô€ÁàÔÕÔÕÔÕÕM(€€€ÍÈ€ô€¡ÍÑ…Ñ”€øø€Ä¤€˜€Áàİİİİİİİİ(€€€Í°€ô€¡ÍÑ…Ñ”€ğğ€Ä¤€˜€Áá(€€€¹•¥¡‰½ÉÌ€ôÍÈxÍ°(€€€¹•áÑ}ÍÑ…Ñ”€ô€¡ÍÑ…Ñ”€˜¹•¥¡‰½ÉÌ¤ğ€¡¹•¥¡‰½ÉÌ€˜€ÁàÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¤(€€€…ÍÍ•ÉĞ¹•áÑ}ÍÑ…Ñ”€„ô€À(€€€ÁÉ¥¹Ğ ‰mAMMt½¹İ…äÕÑ½µ…Ñ½¸MÑ•ÀY•É¥™¥•¸ˆ¤()¥˜}}¹…µ•}|€ôô€}}µ…¥¹}|œè(€€€Ñ•ÍÑ}ÁÅ}µ…Ñ¡}¥¹Ù…É¥…¹ÑÌ ¤(€€€Ñ•ÍÑ}½¹İ…å}ÑÉ…¹Í¥Ñ¥½¸ ¤(€€€ÁÉ¥¹Ğ ‰mMUMMt±°€ÄÀÀ¼ÄÀÀI•…±¥Ñä¡•­ÌA…ÍÍ•¸)
+This module deliberately does not report a pass, score, cryptographic proof,
+FIPS status, or network connection.
+"""
